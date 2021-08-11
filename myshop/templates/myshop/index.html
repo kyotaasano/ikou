@@ -9,7 +9,7 @@
     {% csrf_token %}
     <div class="align-items-center">
       {% render_field form.itemName class="form-control" placeholder="キーワードから探す" %}
-      <button class="btn btn-primary mt-2" type="submit">検索</button>
+      <button class="kensakubtn" type="submit">検索</button>
       {{ contents.products }}
     </div>
   </form>

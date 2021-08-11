@@ -3,16 +3,19 @@
 {% block content %}
 
 <div class="my-5">
+<h3>{{ item_data.itemName }}</h3>
+		<p class="mb-3">{{ item_data.shopName }}</p>
 	<div class="row">
-		<div class="col-md-6 text-center">
-			<img src="{{ item_data.image }}" alt="" class="img-fluid">
+	 
+		
+	<div class="col-6 left">
+			<img src="{{ item_data.image }}" alt="" width="200px" height="200px" class="img-fluid">
 		</div>
 
-		<div class="col-md-6">
+	<div class="col-6 right">
 			<div class="card">
 				<div class="card-body px-2 py-1">
-                                     <h3>{{ item_data.itemName }}</h3>
-				     <p class="mb-3">{{ item_data.shopName }}</p>
+                                     
 				     <hr>
 				     {% if not item_data.reviewCount == 0 %}
 				         <div class="d-flex flex-row">
@@ -53,5 +56,6 @@
 		<p>コード: {{ item_data.itemCode }}</p>
         </div>
 </div>
+
 
 {% endblock %}
