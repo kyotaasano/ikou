@@ -1,0 +1,41 @@
+/*背景と全体のルール*/
+body {
+    /*背景色*/
+    background-color:#fdeda5;
+    /*中央ぞろえ*/
+    text-align:center;
+}
+
+/*タイトル[お買い物ダイアリーのルール]*/
+.title {
+    /*背景色*/
+    color: #ffa500;
+    /*囲いを文字数と合わせる*/
+    display:inline-block;
+    /*囲いの作成*/
+    padding: 5px; margin-bottom: 10px; border: 1px solid #ffa500;
+    /*囲いの中の色*/
+    background-color: rgb(252, 221, 252);
+
+  }
+
+/*検索バーの囲い*/
+.kensaku {
+    padding: 5px; margin-bottom: 10px; border: 5px solid #dd3620;
+    /*線の太さ*/
+    border-radius: 10px;
+
+}
+/*色付きボタンを押したときぽくする:active=クリック時*/
+.kensakubtn:active {
+    position:relative;
+    top:6px;
+}
+
+/*検索ボタンのルール*/
+.kensakubtn {
+    color:#ff8800;
+    padding: 5px; margin-bottom: 10px; border: 1px solid #000000;
+    border-radius: 10px;
+    background-color:#fff01b;
+}

@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<title>ホーム</title>
+</head>
+<body>
+{% block cont %}{% endblock %}
+</body>
+<body>	
+	</nav>
+	<main>
+		<center>
+			<a class="title" href="/myshop">お買い物ダイアリー</a>
+	<img src="/media/img/a.png">					
+		</div>
+		</center>
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+		{% if searchForm %}
+		<center>
+		<button type=“button” class="kensakubtn" onclick="location.href='http://127.0.0.1:8000/myshop/detail'">追加</button>
+		</center>
+		<center>
+	  	<form action='{% url "myshop:base" %}' method='get'>
+	    		{{ searchForm }}
+	    		<input type="submit" value="検索" />	 	 
+	 	</form>
+	 	</center>
+
+   		{% endif %}
+		
+		<center>
+		<h2>{{ title }}</h2>
+		  <table class="flexbox" border='2'>
+			{% for p in product %}
+			  <tr>
+			   <th>{{IMG}}</th>
+			   <td><a href="{% url 'myshop:edit' p.id %}"><img src="{{ p.pic }}"></a></td>
+			  </tr>
+		          <tr>
+			   <th>{{商品名}}</th>
+			   <td>{{ p.name }}</td>
+			  </tr>
+		          <tr>
+		           <th>{{ 説明 }}</th>
+			   <td>{{ p.dsc }}</td>
+			  </tr>
+		          <tr>
+			   <th>{{ 日付 }}</th>
+			   <td>{{ p.date }}</td>
+			  </tr>
+			{% endfor %}
+		  </table>
+		</center>
+		   
+	</main>
+	
+	<footer>
+	        <center>
+		<a href="/myshop" class="navbar-brand">ホーム</a>
+	        </center>	
+	</footer>
+
+	{% block extra_js %}
+	{% endblock %}
+
+</body>
+</html>

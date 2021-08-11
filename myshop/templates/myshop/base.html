@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<title>ホーム</title>
+</head>
+<body>
+{% block cont %}{% endblock %}
+</body>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a href="/myshop" class="navbar-brand">ホーム</a>
+		</div>
+	</nav>
+
+	<main>
+		<center>
+			<h1>商品検索 at 楽天</h1>
+		</center>
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+		{% if searchForm %}
+	  	<form action='{% url "myshop:base" %}' method='get'>
+	    		{{ searchForm }}
+	    		<input type="submit" value="検索" />	 	 
+	 	</form>
+   		{% endif %}
+		
+		<center>
+		<h2>{{ title }}</h2>
+		  <table border='2'>
+		      <th>{{商品名}}</th>
+		      <th>{{ 説明 }}</th>
+		      <th>{{ 日付 }}</th>
+		      <th>{{ IMG  }}</th>
+		    </tr>
+		    {% for p in product %}
+		      <tr>
+		        <td>{{ p.name }}</td>
+		        <td>{{ p.dsc }}</td>
+		        <td>{{ p.date }}</td>
+		        <td><a href="{% url 'myshop:edit' p.id %}"><img src="{{ p.pic }}"></a></td>
+		      </tr>
+		    {% endfor %}
+		  </table>
+		</center>
+	</main>
+	
+	<center>
+	<button type=“button” class="btn btn-primary mt-2" onclick="location.href='http://127.0.0.1:8000/myshop/detail'">追加</button>
+	</center>
+
+	<footer class="py-2 bg-dark">
+		<p class="m-0 text-center text-while">Copyright &copy; Your Name</p>
+	</footer>
+
+	{% block extra_js %}
+	{% endblock %}
+
+</body>
+</html>

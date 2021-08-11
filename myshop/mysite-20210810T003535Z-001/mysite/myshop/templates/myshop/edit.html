@@ -1,0 +1,18 @@
+{% extends 'myshop/base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<div class="text-center my-5">
+<html>
+    <h2>~編集~</h2>
+ 
+    <form action="{% url 'myshop:edit' info.id %}" method='post' class='form'>
+        <!-- ユーザー編集フォームを表示 -->
+        {% csrf_token %}
+        {% bootstrap_form Form %}
+        <button type='submit' class='btn btn-outline-primary'>更新</button>
+        <td><a href="{% url 'myshop:delete' info.id %}" class='btn btn-outline-primary'>削除</a></td>
+    </form>
+    </form>
+</html>
+</div>
+{% endblock %}
